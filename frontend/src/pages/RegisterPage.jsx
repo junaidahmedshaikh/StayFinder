@@ -113,8 +113,8 @@ const RegisterPage = () => {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Header */}
-        <div className="text-center">
-          <Link to="/" className="flex items-center space-x-3 group">
+        <div className="text-center space-y-3">
+          <Link to="/" className="flex items-center justify-center group">
             <div className="w-10 h-10 bg-transparent rounded-2xl flex items-center justify-center  group-hover:shadow-rausch-25 transition-all duration-300">
               {/* <Sparkles className="text-white w-5 h-5" /> */}
               <img
@@ -148,13 +148,13 @@ const RegisterPage = () => {
                   First name
                 </label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <User className="absolute !mt-2 left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                   <Input
                     value={formData.firstName}
                     onChange={(e) =>
                       handleInputChange("firstName", e.target.value)
                     }
-                    className={`pl-10 ${
+                    className={`!pl-10 ${
                       errors.firstName ? "border-red-500" : ""
                     }`}
                     placeholder="First name"
@@ -191,12 +191,12 @@ const RegisterPage = () => {
                 Email address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Mail className="absolute !mt-2 left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className={`pl-10 ${errors.email ? "border-red-500" : ""}`}
+                  className={`!pl-10 ${errors.email ? "border-red-500" : ""}`}
                   placeholder="Enter your email"
                 />
               </div>
@@ -211,14 +211,14 @@ const RegisterPage = () => {
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Lock className="absolute !mt-2 left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
                   type={showPassword ? "text" : "password"}
                   value={formData.password}
                   onChange={(e) =>
                     handleInputChange("password", e.target.value)
                   }
-                  className={`pl-10 pr-10 ${
+                  className={`!pl-10 pr-10 ${
                     errors.password ? "border-red-500" : ""
                   }`}
                   placeholder="Create a password"
@@ -226,7 +226,7 @@ const RegisterPage = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute !mt-2 right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -345,14 +345,14 @@ const RegisterPage = () => {
                 Confirm password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Lock className="absolute !mt-2 left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
                   type={showConfirmPassword ? "text" : "password"}
                   value={formData.confirmPassword}
                   onChange={(e) =>
                     handleInputChange("confirmPassword", e.target.value)
                   }
-                  className={`pl-10 pr-10 ${
+                  className={`!pl-10 pr-10 ${
                     errors.confirmPassword ? "border-red-500" : ""
                   }`}
                   placeholder="Confirm your password"
@@ -360,7 +360,7 @@ const RegisterPage = () => {
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute !mt-2 right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                   {showConfirmPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -377,17 +377,17 @@ const RegisterPage = () => {
             </div>
 
             {/* Terms and Newsletter */}
-            <div className="space-y-3">
-              <label className="flex items-start">
+            <div className="!space-y-3 !mt-2 ">
+              <label className="flex items-center">
                 <input
                   type="checkbox"
                   checked={formData.agreeToTerms}
                   onChange={(e) =>
                     handleInputChange("agreeToTerms", e.target.checked)
                   }
-                  className="mt-1 rounded border-gray-300 text-rausch focus:ring-rausch"
+                  className="mt-1  rounded border-gray-300 text-Rausch focus:ring-rausch"
                 />
-                <span className="ml-2 text-sm text-gray-600">
+                <span className="!ml-2 text-sm text-gray-600">
                   I agree to the{" "}
                   <Link
                     to="/terms"
@@ -408,7 +408,7 @@ const RegisterPage = () => {
                 <p className="text-sm text-red-600">{errors.agreeToTerms}</p>
               )}
 
-              <label className="flex items-start">
+              <label className="flex items-center">
                 <input
                   type="checkbox"
                   checked={formData.subscribeNewsletter}
@@ -417,7 +417,7 @@ const RegisterPage = () => {
                   }
                   className="mt-1 rounded border-gray-300 text-rausch focus:ring-rausch"
                 />
-                <span className="ml-2 text-sm text-gray-600">
+                <span className="!ml-2 text-sm text-gray-600">
                   Send me travel tips, deals, and updates (optional)
                 </span>
               </label>
@@ -430,7 +430,7 @@ const RegisterPage = () => {
           </form>
 
           {/* Divider */}
-          <div className="mt-6">
+          <div className="!mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300" />
@@ -444,7 +444,7 @@ const RegisterPage = () => {
           </div>
 
           {/* Social Signup */}
-          <div className="mt-6 space-y-3">
+          <div className="!mt-6 space-y-3">
             <Button
               variant="outline"
               onClick={() => handleSocialSignup("Google")}
@@ -484,7 +484,7 @@ const RegisterPage = () => {
           </div>
 
           {/* Sign in link */}
-          <div className="mt-6 text-center">
+          <div className="!mt-6 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
               <Link

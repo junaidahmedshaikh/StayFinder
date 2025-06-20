@@ -66,7 +66,6 @@ const SearchResults = () => {
   console.log(showFilters);
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
 
       {/* Search Header */}
       <div className="bg-white border-b border-gray-200 sticky top-20 z-40">
@@ -172,7 +171,7 @@ const SearchResults = () => {
           {/* Filters Sidebar */}
           {showFilters && (
             <div className="w-80 flex-shrink-0">
-              <Card className="p-6 sticky top-32">
+              <Card className="p-6 sticky top-32" >
                 <h3 className="text-lg font-semibold mb-4">Filters</h3>
 
                 {/* Price Range */}
@@ -375,7 +374,6 @@ const SearchResults = () => {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

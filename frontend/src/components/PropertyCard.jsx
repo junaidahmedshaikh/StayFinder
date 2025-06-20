@@ -5,6 +5,7 @@ import { Heart, Star, MapPin, Wifi, Coffee, Waves } from "lucide-react";
 import { Button } from "./ui/Button";
 import { Card } from "./ui/Card";
 import { Badge } from "./ui/Badge";
+import { Link } from "react-router-dom";
 
 const amenityIcons = {
   Wifi: Wifi,
@@ -32,12 +33,17 @@ const PropertyCard = ({ property }) => {
   const toggleWishlist = () => {
     setIsWishlisted(!isWishlisted);
   };
+  console.log(property)
+  
+  const handleMouseEnter = () => setIsHovered(true);
+const handleMouseLeave = () => setIsHovered(false);
 
   return (
+    <Link >
     <Card
       className="group floating-card glass bg-white-95 backdrop-blur-xl border-0 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      // onMouseLeave={handleMouseLeave}
     >
       <div className="relative overflow-hidden">
         <img
@@ -135,6 +141,7 @@ const PropertyCard = ({ property }) => {
       {/* Subtle Border Glow */}
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-rausch-0 via-babu-0 to-beach-0 group-hover:from-rausch-20 group-hover:via-babu-20 group-hover:to-beach-20 transition-all duration-500 pointer-events-none" />
     </Card>
+    </Link>
   );
 };
 

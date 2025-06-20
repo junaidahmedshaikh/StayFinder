@@ -8,10 +8,8 @@ import {
   Globe,
   Shield,
 } from "lucide-react";
-import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 import PropertyCard from "../components/PropertyCard";
-import Footer from "../components/Footer";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Badge } from "../components/ui/Badge";
@@ -20,7 +18,6 @@ import { featuredProperties, features } from "../../constant";
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -147,7 +144,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

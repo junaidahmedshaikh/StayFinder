@@ -5,6 +5,7 @@ import {
   Star,
   Sparkles,
   Zap,
+    Wifi,
   Globe,
   Shield,
 } from "lucide-react";
@@ -229,3 +230,5 @@ const properties = [
     instantBook: true,
   },
 ];
+
+

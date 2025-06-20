@@ -1,21 +1,28 @@
-import { Sparkles } from "lucide-react";
-import { Button } from "./ui/Button";
-import { Input } from "./ui/Input";
-import { Card } from "./ui/Card";
-import { Badge } from "./ui/Badge";
-
+import { logoIcon } from "../../constant";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="glass bg-gray-900-95 backdrop-blur-xl text-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-rausch-beach rounded-2xl flex items-center justify-center">
-                <Sparkles className="text-white w-5 h-5" />
-              </div>
-              <span className="text-2xl font-bold">Stayfinder</span>
+            <Link to="/" className="flex items-center space-x-3 group">
+            <div className="w-10 h-10 bg-transparent rounded-2xl flex items-center justify-center  group-hover:shadow-rausch-25 transition-all duration-300">
+              {/* <Sparkles className="text-white w-5 h-5" /> */}
+              <img
+                className="w-full h-full"
+                src={logoIcon}
+                style={{
+                  filter: "contrast(100%)",
+                  mixBlendMode: "multiply",
+                }}
+                alt=""
+              />
             </div>
+            <span className="text-2xl font-bold gradient-text font-sans">
+              Stayfinder
+            </span>
+          </Link>
             <p className="text-gray-400 leading-relaxed">
               Discover extraordinary accommodations and create unforgettable
               travel experiences with AI-powered matching.

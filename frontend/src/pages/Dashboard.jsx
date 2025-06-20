@@ -13,8 +13,7 @@ import {
   CreditCard,
   Bell,
 } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Badge } from "../components/ui/Badge";
@@ -97,11 +96,11 @@ const Dashboard = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case "upcoming":
-        return "bg-blue-100 text-blue-800";
+        return "!bg-Babu text-blue-800";
       case "completed":
-        return "bg-green-100 text-green-800";
+        return "bg-green-500 text-green-800";
       case "cancelled":
-        return "bg-red-100 text-red-800";
+        return "!bg-red-500 text-red-800";
       case "active":
         return "bg-green-100 text-green-800";
       default:
@@ -117,7 +116,6 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -152,7 +150,7 @@ const Dashboard = () => {
 
         {/* Tab Content */}
         {activeTab === "bookings" && (
-          <div className="space-y-6">
+          <div className="!space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-semibold">My Bookings</h2>
               <Link to="/search">
@@ -172,11 +170,11 @@ const Dashboard = () => {
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6">
-                    <div className="flex justify-between items-start mb-3">
+                    <div className="flex justify-between  items-center mb-2">
                       <h3 className="font-semibold text-lg">
                         {booking.property}
                       </h3>
-                      <Badge className={getStatusColor(booking.status)}>
+                      <Badge className={`${getStatusColor(booking.status)} !py-[3px] !px-2 font-semibold`}>
                         {booking.status}
                       </Badge>
                     </div>
@@ -410,7 +408,6 @@ const Dashboard = () => {
         )}
       </div>
 
-      <Footer />
     </div>
   );
 };

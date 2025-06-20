@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/Button";
 import { logoIcon } from "../../constant";
-
 const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 glass bg-white-90 backdrop-blur-xl border-b border-white-30">
@@ -50,8 +49,9 @@ const Navbar = () => {
             <Button
               variant="ghost"
               className="rounded-2xl hover:bg-rausch-light border-Arches  transition-colors duration-300"
+              to={"/login"}
             >
-              Sign In
+              Login In
             </Button>
             <Button className="bg-gradient-rausch-beach hover:bg-gradient-rausch-beach-hover rounded-2xl shadow-lg hover:shadow-rausch-25 transition-all duration-300">
               Sign Up

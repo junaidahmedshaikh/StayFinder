@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import { CreditCard, Shield, ArrowLeft } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
@@ -71,7 +69,6 @@ const BookingPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -433,7 +430,6 @@ const BookingPage = () => {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

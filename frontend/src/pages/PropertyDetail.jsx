@@ -15,8 +15,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Badge } from "../components/ui/Badge";
@@ -30,6 +29,7 @@ const PropertyDetail = () => {
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(1);
 
+  console.log(id)
   // Mock property data
   const property = {
     id: 1,
@@ -130,13 +130,13 @@ The master suite boasts panoramic ocean views and a private balcony, while three
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+      <div className="max-w-7xl !pt-10 mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-6">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-            <div>
+          <div className="flex flex-col  lg:!flex-row lg:items-center lg:justify-between gap-4">
+            <div >
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
                 {property.title}
               </h1>
@@ -162,9 +162,8 @@ The master suite boasts panoramic ocean views and a private balcony, while three
               <Button
                 variant="outline"
                 onClick={() => setIsWishlisted(!isWishlisted)}
-                className={`flex items-center gap-2 ${
-                  isWishlisted ? "text-rausch" : ""
-                }`}
+                className={`flex items-center gap-2 ${isWishlisted ? "text-rausch" : ""
+                  }`}
               >
                 <Heart
                   className={`w-4 h-4 ${isWishlisted ? "fill-current" : ""}`}
@@ -181,7 +180,7 @@ The master suite boasts panoramic ocean views and a private balcony, while three
             <img
               src={property.images[currentImageIndex] || "/placeholder.svg"}
               alt={property.title}
-              className="w-full h-96 lg:h-[500px] object-cover"
+              className="w-full h-96 lg:!h-[500px] object-cover"
             />
             <button
               onClick={prevImage}
@@ -200,11 +199,10 @@ The master suite boasts panoramic ocean views and a private balcony, while three
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentImageIndex
+                  className={`w-2 h-2 rounded-full transition-all ${index === currentImageIndex
                       ? "bg-white"
                       : "bg-white bg-opacity-50"
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -213,7 +211,7 @@ The master suite boasts panoramic ocean views and a private balcony, while three
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 !space-y-8">
             {/* Host Info */}
             <div className="flex items-center justify-between">
               <div>
@@ -249,7 +247,7 @@ The master suite boasts panoramic ocean views and a private balcony, while three
               <div className="grid grid-cols-2 gap-4">
                 {property.amenities.map((amenity, index) => (
                   <div key={index} className="flex items-center">
-                    <amenity.icon className="w-5 h-5 mr-3 text-gray-600" />
+                    <amenity.icon className="w-5 h-5 !mr-3 text-Rausch" />
                     <span>{amenity.name}</span>
                   </div>
                 ))}
@@ -277,7 +275,7 @@ The master suite boasts panoramic ocean views and a private balcony, while three
             </div>
 
             {/* Reviews */}
-            <div>
+            <div className="">
               <div className="flex items-center gap-4 mb-6">
                 <h3 className="text-xl font-semibold">Reviews</h3>
                 <div className="flex items-center">
@@ -292,9 +290,9 @@ The master suite boasts panoramic ocean views and a private balcony, while three
                 {property.reviews.map((review) => (
                   <div
                     key={review.id}
-                    className="border-b border-gray-200 pb-6 last:border-b-0"
+                    className="border-b border-gray-200 !py-6 last:border-b-0"
                   >
-                    <div className="flex items-center mb-3">
+                    <div className="flex items-center gap-2">
                       <img
                         src={review.avatar || "/placeholder.svg"}
                         alt={review.user}
@@ -345,13 +343,13 @@ The master suite boasts panoramic ocean views and a private balcony, while three
                     <label className="block text-sm font-medium text-gray-700 mb-1">
                       Check-in
                     </label>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <div className="relative flex justify-center">
+                      <Calendar className="absolute left-3 top-1/2 !mt-2 transform -translate-y-1/2 w-4 h-4 text-Rausch" />
                       <input
                         type="date"
                         value={checkIn}
                         onChange={(e) => setCheckIn(e.target.value)}
-                        className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rausch focus:border-transparent"
+                        className="w-full !pl-10 pr-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rausch focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -360,27 +358,30 @@ The master suite boasts panoramic ocean views and a private balcony, while three
                       Check-out
                     </label>
                     <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                      <Calendar className="absolute left-3 top-1/2 !mt-2 transform -translate-y-1/2 w-4 h-4 text-Rausch" />
                       <input
                         type="date"
                         value={checkOut}
                         onChange={(e) => setCheckOut(e.target.value)}
-                        className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rausch focus:border-transparent"
+                        className="w-full !pl-10 pr-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rausch focus:border-transparent"
                       />
+
                     </div>
                   </div>
                 </div>
+
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Guests
                   </label>
                   <div className="relative">
-                    <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                    <Users className="absolute left-3  top-1/2 !mt-2 transform -translate-y-1/2 w-4 h-4 !text-Rausch" />
                     <select
                       value={guests}
                       onChange={(e) => setGuests(parseInt(e.target.value))}
-                      className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rausch focus:border-transparent"
+                      className="w-full !pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rausch focus:border-transparent"
+                      //  className="w-full !pl-10 pr-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rausch focus:border-transparent"
                     >
                       {[...Array(property.details.guests)].map((_, i) => (
                         <option key={i + 1} value={i + 1}>
@@ -431,7 +432,6 @@ The master suite boasts panoramic ocean views and a private balcony, while three
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };

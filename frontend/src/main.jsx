@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import {
-  BrowserRouter,
+  
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
@@ -15,6 +15,7 @@ import PropertyDetail from "./pages/PropertyDetail.jsx";
 import CreateListing from "./pages/CreatingListing.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import SearchPage from "./pages/SearchResult.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -41,7 +42,7 @@ const routes = createBrowserRouter([
         element: <SearchPage />,
       },
       {
-        path: "/property/id",
+        path: "/property/:id",
         element: <PropertyDetail />,
       },
       {
@@ -52,6 +53,10 @@ const routes = createBrowserRouter([
         path: "/property/create",
         element: <CreateListing />,
       },
+      {
+        path: "/dashboard",
+        element: <Dashboard />
+      }
     ],
     errorElement: <NotFound />,
   },

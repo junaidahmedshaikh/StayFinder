@@ -67,8 +67,8 @@ const LoginPage = () => {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Header */}
-        <div className="text-center">
-          <Link to="/" className="flex items-center space-x-3 group">
+        <div className="text-center !space-y-3">
+          <Link to="/" className="flex justify-center items-center  group">
             <div className="w-10 h-10 bg-transparent rounded-2xl flex items-center justify-center  group-hover:shadow-rausch-25 transition-all duration-300">
               {/* <Sparkles className="text-white w-5 h-5" /> */}
               <img
@@ -90,19 +90,19 @@ const LoginPage = () => {
         </div>
 
         <Card className="p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="!space-y-6">
             {/* Email */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Email address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Mail className="absolute left-3 top-1/2 !mt-2  transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
-                  className={`pl-10 ${errors.email ? "border-red-500" : ""}`}
+                  className={`!pl-10 ${errors.email ? "border-red-500" : ""}`}
                   placeholder="Enter your email"
                 />
               </div>
@@ -117,14 +117,14 @@ const LoginPage = () => {
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Lock className="absolute !mt-2 left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input
                   type={showPassword ? "text" : "password"}
                   value={formData.password}
                   onChange={(e) =>
                     handleInputChange("password", e.target.value)
                   }
-                  className={`pl-10 pr-10 ${
+                  className={`!pl-10 pr-10 ${
                     errors.password ? "border-red-500" : ""
                   }`}
                   placeholder="Enter your password"
@@ -132,7 +132,7 @@ const LoginPage = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 !mt-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                   {showPassword ? (
                     <EyeOff className="w-5 h-5" />
@@ -153,7 +153,7 @@ const LoginPage = () => {
                   type="checkbox"
                   className="rounded border-gray-300 text-rausch focus:ring-rausch"
                 />
-                <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                <span className="!ml-2 text-sm text-gray-600">Remember me</span>
               </label>
               <Link
                 to="/forgot-password"
@@ -170,7 +170,7 @@ const LoginPage = () => {
           </form>
 
           {/* Divider */}
-          <div className="mt-6">
+          <div className="!mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300" />
@@ -184,7 +184,7 @@ const LoginPage = () => {
           </div>
 
           {/* Social Login */}
-          <div className="mt-6 space-y-3">
+          <div className="!mt-6 !space-y-3">
             <Button
               variant="outline"
               onClick={() => handleSocialLogin("Google")}
@@ -222,20 +222,10 @@ const LoginPage = () => {
               Continue with Facebook
             </Button>
 
-            <Button
-              variant="outline"
-              onClick={() => handleSocialLogin("Apple")}
-              className="w-full flex items-center justify-center gap-3"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.017 0C8.396 0 8.025.044 6.79.207 5.557.37 4.697.723 3.953 1.468c-.744.744-1.097 1.604-1.26 2.837C2.53 5.54 2.486 5.911 2.486 9.532v4.936c0 3.621.044 3.992.207 5.225.163 1.233.516 2.093 1.26 2.837.744.744 1.604 1.097 2.837 1.26 1.235.163 1.606.207 5.227.207h4.936c3.621 0 3.992-.044 5.225-.207 1.233-.163 2.093-.516 2.837-1.26.744-.744 1.097-1.604 1.26-2.837.163-1.233.207-1.604.207-5.225V9.532c0-3.621-.044-3.992-.207-5.225-.163-1.233-.516-2.093-1.26-2.837C19.244.723 18.384.37 17.151.207 15.916.044 15.545 0 11.924 0h.093zm-.093 2.184c3.565 0 3.988.044 5.392.207 1.3.163 2.007.442 2.477.744.622.279 1.067.651 1.535 1.119.468.468.84.913 1.119 1.535.302.47.581 1.177.744 2.477.163 1.404.207 1.827.207 5.392v4.936c0 3.565-.044 3.988-.207 5.392-.163 1.3-.442 2.007-.744 2.477-.279.622-.651 1.067-1.119 1.535-.468.468-.913.84-1.535 1.119-.47.302-1.177.581-2.477.744-1.404.163-1.827.207-5.392.207H7.076c-3.565 0-3.988-.044-5.392-.207-1.3-.163-2.007-.442-2.477-.744-.622-.279-1.067-.651-1.535-1.119-.468-.468-.84-.913-1.119-1.535-.302-.47-.581-1.177-.744-2.477C2.646 15.916 2.602 15.493 2.602 11.928V7.076c0-3.565.044-3.988.207-5.392.163-1.3.442-2.007.744-2.477.279-.622.651-1.067 1.119-1.535.468-.468.913-.84 1.535-1.119.47-.302 1.177-.581 2.477-.744C8.088 2.228 8.511 2.184 12.076 2.184h-.093z" />
-              </svg>
-              Continue with Apple
-            </Button>
           </div>
 
           {/* Sign up link */}
-          <div className="mt-6 text-center">
+          <div className="!mt-6 text-center">
             <p className="text-sm text-gray-600">
               Don't have an account?{" "}
               <Link
