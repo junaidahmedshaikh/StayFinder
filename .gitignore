@@ -1,0 +1,54 @@
+# ----------------------
+# Global Ignore Patterns
+# ----------------------
+
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# ----------------------
+# Backend Specific
+# ----------------------
+
+# Compiled output (if using TypeScript)
+backend/dist/
+backend/build/
+
+# Optional: ignore SQLite or local DB files
+*.sqlite
+*.sqlite3
+
+# ----------------------
+# Frontend Specific
+# ----------------------
+
+# Vite/React build artifacts
+frontend/dist/
+frontend/.vite/
+
+# Cache
+frontend/.cache/
+frontend/.next/ # if using Next.js instead

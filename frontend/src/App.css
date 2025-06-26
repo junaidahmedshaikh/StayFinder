@@ -55,9 +55,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /* Background Gradients */
+/* Example in your theme.css or similar */
 .bg-gradient-rausch-beach {
-    background: linear-gradient(135deg, var(--rausch), var(--beach));
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    transition: all 0.3s ease;
+    color: white;
 }
+
+.bg-gradient-rausch-beach:hover {
+    background: white !important;
+    color: #FF5A5F !important;
+    /* replace with your Rausch color */
+}
+
 
 .bg-gradient-rausch-babu {
     background: linear-gradient(135deg, var(--rausch), var(--babu));

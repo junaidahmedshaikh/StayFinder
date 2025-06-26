@@ -1,6 +1,4 @@
-import {
-    Sparkles
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { features } from "../../constant";
 import PropertyCard from "../components/PropertyCard";
@@ -10,17 +8,31 @@ import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { useProperties } from "../hooks/useListings";
 const HomePage = () => {
+  const { data: properties, isLoading, error } = useProperties();
 
-    const {data: properties, isLoading, error} = useProperties();
+  if (error) {
+    console.error("Error fetching properties:", error);
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">
+            Error Loading Properties
+          </h2>
+          <p className="text-gray-600 mb-2">Error: {error.message}</p>
+          {error.response && (
+            <p className="text-sm text-gray-500">
+              Status: {error.response.status} - {error.response.statusText}
+            </p>
+          )}
+        </div>
+      </div>
+    );
+  }
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
-
-   console.log(properties);
+  console.log("Fetched properties:", properties);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
-
       {/* Hero Section */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Elements */}
@@ -69,7 +81,6 @@ const HomePage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-
               <Card
                 key={feature.title}
                 className={`glass bg-white-70 backdrop-blur-xl border-0 rounded-3xl p-8 text-center group hover:bg-white-90 transition-all duration-500 floating-card animation-delay-${index}`}
@@ -110,6 +121,7 @@ const HomePage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {isLoading && <div>Loading...</div>}
             {properties && properties.length > 0 ? (
               properties.map((property, index) => (
                 <div
@@ -123,7 +135,9 @@ const HomePage = () => {
               ))
             ) : (
               <div className="col-span-3 text-center py-10">
-                <p className="text-gray-600">No properties available at the moment.</p>
+                <p className="text-gray-600">
+                  No properties available at the moment.
+                </p>
               </div>
             )}
           </div>
@@ -154,7 +168,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
     </div>
   );
 };
