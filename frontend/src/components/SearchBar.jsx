@@ -1,11 +1,6 @@
 "use client";
 
-import {
-    Calendar,
-    MapPin,
-    Search,
-    Users
-} from "lucide-react";
+import { Calendar, MapPin, Search, Users } from "lucide-react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/Button";
@@ -34,15 +29,15 @@ const SearchBar = () => {
     );
   };
 
- const handleIconClick = (ref) => {
+  const handleIconClick = (ref) => {
     if (ref === "checkInInputRef") {
-      if (typeof checkInInputRef.current?.showPicker === 'function') {
+      if (typeof checkInInputRef.current?.showPicker === "function") {
         checkInInputRef.current.showPicker();
       } else {
         checkInInputRef.current?.click();
       }
     } else if (ref === "checkOutInputRef") {
-      if (typeof checkOutInputRef.current?.showPicker === 'function') {
+      if (typeof checkOutInputRef.current?.showPicker === "function") {
         checkOutInputRef.current.showPicker();
       } else {
         checkOutInputRef.current?.click();
@@ -78,10 +73,13 @@ const SearchBar = () => {
               <input
                 type="date"
                 placeholder="Check in"
-               onClick={(e) => {
-                  if (typeof e.target.showPicker === 'function') {
+                onClick={(e) => {
+                  if (typeof e.target.showPicker === "function") {
                     e.target.showPicker();
                   }
+                }}
+                style={{
+                  color: "#6B7280",
                 }}
                 ref={checkInInputRef}
                 className="pl-12 pr-4 placeholder:text-gray-500 outline-none  border-0 h-16
@@ -100,12 +98,15 @@ const SearchBar = () => {
                 type="date"
                 placeholder="Check out"
                 ref={checkOutInputRef}
-                 onClick={(e) => {
-                  if (typeof e.target.showPicker === 'function') {
+                onClick={(e) => {
+                  if (typeof e.target.showPicker === "function") {
                     e.target.showPicker();
                   }
                 }}
-                className="pl-12 pr-4 placeholder:text-gray-500 outline-none  border-0 h-16
+                style={{
+                  color: "#6B7280",
+                }}
+                className="pl-12 pr-4 outline-none  border-0 h-16
                 text-base bg-white-70 backdrop-blur-sm transition-all duration-300 cursor-pointer"
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-babu-0 to-babu-0 group-hover:from-babu-5 group-hover:to-beach-5 transition-all duration-300 pointer-events-none" />

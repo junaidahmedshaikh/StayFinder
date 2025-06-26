@@ -1,11 +1,9 @@
-
-const properties = 'properties';
-const propertyById = (id) => `properties/${id}`;
-
+const properties = "/properties";
+const propertyById = (id) => `/properties/${id}`;
 
 const endpoints = {
-    properties,
-    propertyById,
+  properties,
+  propertyById,
 };
 
 export default endpoints;
